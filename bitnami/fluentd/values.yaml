@@ -840,16 +840,11 @@ aggregator:
       </match>
 
       # Send the logs to the standard output
-      <match **>
-        @type stdout
-      </match>
-
+      
       <match **>
         @type elasticsearch
         host es-elasticsearch.efk  # Elasticsearch host (adjust to your setup)
         port 9200                  # Port for Elasticsearch (default is 9200)
-        logstash_format true       # Use Logstash-style format for indices
-        logstash_prefix fluentd    # Prefix for the indices (e.g., fluentd-YYYY.MM.DD)
         flush_interval 5s          # Flush logs to Elasticsearch every 5 seconds
         retry_limit 17             # Retry up to 17 times in case of failure
         num_threads 1              # Number of threads to handle requests
