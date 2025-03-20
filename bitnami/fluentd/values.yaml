@@ -841,7 +841,7 @@ aggregator:
 
       # Send the logs to the standard output
       
-      <match **>
+      <label @FLUENT_LOG>
         @type elasticsearch
         host es-elasticsearch.efk  # Elasticsearch host (adjust to your setup)
         port 9200                  # Port for Elasticsearch (default is 9200)
@@ -856,6 +856,7 @@ aggregator:
           queue_limit_length 128   # Limit for the number of chunks in the buffer
         </buffer>
       </match>
+    </ROOT>
 
       
     metrics.conf: |
