@@ -186,11 +186,11 @@ forwarder:
       <match fluent.**>
         @type null
       </match>
-#################################################################
+
       <system>
         log_level debug
       </system>
-#################################################################
+
       <match kubernetes.**>
       @type elasticsearch
       host elasticsearch.local
@@ -206,8 +206,8 @@ forwarder:
           chunk_limit_size 5MB
           queue_limit_length 128
         </buffer>
-       </match>
- ###################################################################     
+      </match>
+     
 
       @include fluentd-inputs.conf
       @include fluentd-output.conf
