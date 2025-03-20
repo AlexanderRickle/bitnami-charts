@@ -856,7 +856,6 @@ aggregator:
           queue_limit_length 128   # Limit for the number of chunks in the buffer
         </buffer>
       </match>
-    </ROOT>
 
       
     metrics.conf: |
