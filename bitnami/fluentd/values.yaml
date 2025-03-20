@@ -836,19 +836,11 @@ aggregator:
     fluentd-output.conf: |
       # Throw the healthcheck to the standard output
       <match fluentd.healthcheck>
-        @type stdout
-      </match>
-
-      # Send the logs to the standard output
-      
-      <label @FLUENT_LOG>
         @type elasticsearch
-        host es-elasticsearch.efk  # Elasticsearch host (adjust to your setup)
-        port 9200                  # Port for Elasticsearch (default is 9200)
-        flush_interval 5s          # Flush logs to Elasticsearch every 5 seconds
-        retry_limit 17             # Retry up to 17 times in case of failure
-
-
+        host es-elasticsearch.efk      # Elasticsearch host (adjust to your setup)
+        port 9200                      # Port for Elasticsearch (default is 9200)
+        flush_interval 5s              # Flush logs to Elasticsearch every 5 seconds
+        retry_limit 17                 # Retry up to 17 times in case of failure
         <buffer>
           flush_at_shutdown true   # Ensure logs are flushed when Fluentd shuts down
           flush_interval 10s       # Flush logs to Elasticsearch every 10 seconds
