@@ -193,7 +193,7 @@ forwarder:
 
       <match kubernetes.**>
       @type elasticsearch
-      host elasticsearch.local
+      host es-elasticsearch.efk
       port 9200
       logstash_format true
       logstash_prefix fluentd
