@@ -185,26 +185,7 @@ forwarder:
       # Ignore fluentd own events
       <match fluent.**>
         @type null
-      </match>
-
-
-      <match kubernetes.**>
-      @type elasticsearch
-      host es-elasticsearch.efk
-      port 9200
-      logstash_format true
-      logstash_prefix fluentd
-      flush_interval 5s
-      retry_limit 17
-      num_threads 1
-        <buffer>
-          flush_at_shutdown true
-          flush_interval 10s
-          chunk_limit_size 5MB
-          queue_limit_length 128
-        </buffer>
-      </match>
-     
+      </match>     
 
       @include fluentd-inputs.conf
       @include fluentd-output.conf
