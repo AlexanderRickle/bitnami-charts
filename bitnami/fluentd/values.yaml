@@ -835,20 +835,9 @@ aggregator:
       </source>
     fluentd-output.conf: |
       # Throw the healthcheck to the standard output
-      <match fluent_log>
-        @type elasticsearch
-        host es-elasticsearch.efk      # Elasticsearch host (adjust to your setup)
-        port 9200                      # Port for Elasticsearch (default is 9200)
-        flush_interval 5s              # Flush logs to Elasticsearch every 5 seconds
-        retry_limit 17                 # Retry up to 17 times in case of failure
-        <buffer>
-          flush_at_shutdown true   # Ensure logs are flushed when Fluentd shuts down
-          flush_interval 10s       # Flush logs to Elasticsearch every 10 seconds
-          chunk_limit_size 5MB     # Maximum size of each log chunk
-          queue_limit_length 128   # Limit for the number of chunks in the buffer
-        </buffer>
+      <match **>
+        @type stdout
       </match>
-
       
     metrics.conf: |
       # Prometheus Exporter Plugin
