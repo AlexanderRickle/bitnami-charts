@@ -187,9 +187,6 @@ forwarder:
         @type null
       </match>
 
-      <system>
-        log_level debug
-      </system>
 
       <match kubernetes.**>
       @type elasticsearch
