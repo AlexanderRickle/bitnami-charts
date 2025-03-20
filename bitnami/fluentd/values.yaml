@@ -187,6 +187,10 @@ forwarder:
         @type null
       </match>
 
+      <system>
+        log_level debug
+      </system>
+
       @include fluentd-inputs.conf
       @include fluentd-output.conf
       {{- if .Values.metrics.enabled }}
