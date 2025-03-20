@@ -835,7 +835,7 @@ aggregator:
       </source>
     fluentd-output.conf: |
       # Throw the healthcheck to the standard output
-      <match fluentd.healthcheck>
+      <match fluent_log>
         @type elasticsearch
         host es-elasticsearch.efk      # Elasticsearch host (adjust to your setup)
         port 9200                      # Port for Elasticsearch (default is 9200)
